@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rest Client</title>
+  
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="script.js"></script>
+  
+
+  
+</head>
+<body ng-app="https">
+  <div ng-controller="FetchController">
+  <select ng-model="method" aria-label="Request method">
+    <option>GET</option>
+  
+     
+  </select>
+  <input type="text" ng-model="url" size="50" aria-label="URL" />
+  <button id="fetchbtn" ng-click="fetch()">Send</button><br>
+ 
+  <pre>http status code: {{status}}</pre>
+  <pre>http response text: {{statustext}}</pre>
+  <pre>http response data: {{data}}</pre>
+   <hr />
+</div>
+  <!-- writing POST functions-->
+  
+
+
+<div  ng-controller="FetchController">
+    <form ng-submit="SendHttpPostData()">
+    
+    <button>POST</button>
+  
+  
+  <input type="text" ng-model="url" size="50" aria-label="URL" /><br/>
+        <p>Data: <input type="text" name="fdata" ng-model="fdata" required /></p>
+         <label>Parameter 1: <input type="text" ng-model="postParam1" ng-init="postParam1 = 'param1 value'" /></label><br />
+    <label>Parameter 2: <input type="text" ng-model="postParam2" ng-init="postParam2 = 'param2 value'" /></label><br />
+       
+        <input type="submit" value="Send" />
+       
+       <pre>http POST status:   {{status}}</pre>
+       <pre>http POST data:  {{ ServerResponse }}</pre>
+       <pre>http headers:  {{ headers }}</pre>
+        <hr />
+    </form>
+</div>
+
+  <!-- writing PUT functions-->
+
+<div  ng-controller="FetchController">
+    <form ng-submit="SendHttpPUTData()">
+    
+    <button>PUT</button>
+   
+  
+  <input type="text" ng-model="url" size="50" aria-label="URL" /><br/>
+        <p>Data: <input type="text" name="fdata" ng-model="fdata" required /></p>
+         <label>Parameter 1: <input type="text" ng-model="postParam1" ng-init="postParam1 = 'param1 value'" /></label><br />
+    <label>Parameter 2: <input type="text" ng-model="postParam2" ng-init="postParam2 = 'param2 value'" /></label><br />
+       
+        <input type="submit" value="Send" />
+       
+       <pre>http PUT status:   {{status}}</pre>
+       <pre>http PUT data:  {{ ServerResponse }}</pre>
+       <pre>http headers:  {{ headers }}</pre>
+        <hr />
+    </form>
+</div>
+
+  <!-- writing DELETE functions-->
+<div  ng-controller="FetchController">
+
+  <button>DELETE</button>
+   <input type="text" ng-model="url" size="50" aria-label="URL" /><br/>
+   <label>Parameter 1: <input type="text" ng-model="deleteParam1" ng-init="deleteParam1 = 'param1 value'" /></label><br />
+    <label>Parameter 2: <input type="text" ng-model="deleteParam2" ng-init="deleteParam2 = 'param2 value'" /></label><br />
+    <button ng-click="SendHttpDELETEData()">Send</button><br />
+    <pre> Delete Result: {{deleteCallResult}}</pre>
+</div>
+ <hr />
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+
+  "name": "Rest client as a Chrome Extension",
+  "description": "Rest Client to make HTTP Get, Post, Put and Delete requests to a particular URL.",
+  "version": "1.0",
+
+
+
+  "browser_action": {
+    "default_icon": "monitor.png",
+    "default_popup": "index.html"
+  },
+
+  "icons": {
+    "64": "monitor.png"
+  },
+
+  "background": {
+        "scripts": ["script.js"]
+       
+    },
+
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/",
+     "http://*/*", 
+        "https://*/*"
+  ]
+}
+
